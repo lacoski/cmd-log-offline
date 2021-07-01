@@ -33,6 +33,8 @@ cp ./sources/u20.profile /etc/skel/.profile
 # Config rsyslog 
 echo "Config rsyslog"
 mv /etc/rsyslog.{conf,conf.bk}
-echo "local6.*                /var/log/cmdlog.log" >> /etc/rsyslog.d/30-cmd.conf
+cp ./sources/u20.rsyslog.conf /etc/rsyslog.conf
 systemctl restart rsyslog.service > /dev/null 2>&1 || service rsyslog restart > /dev/null 2>&1
 source ~/.bashrc
+
+echo "DONE - This task need be LOGOUT & LOGIN again to start logging cmd"
